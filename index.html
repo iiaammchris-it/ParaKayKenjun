@@ -103,15 +103,7 @@
 </head>
 <body>
 
-  <!-- Background Music -->
- <div style="text-align: center; margin-top: 10px;">
-  <audio id="bgMusic" loop>
-    <source src="ikaw-file.mp3" type="audio/mpeg">
-  </audio>
-  <button onclick="toggleMusic()" style="background-color:#d35d74;color:#fff;padding:6px 12px;border:none;border-radius:8px;cursor:pointer;">
-    ▶️ Play Music
-  </button>
-</div>
+ 
 
   <div class="overlay">
 
@@ -120,6 +112,41 @@
     Music Playing: <em>Ikaw – Mula sa Buwan</em>
   </p>
   <h1>Para kay Kenjun</h1>
+<!-- Audio element -->
+<audio id="bgMusic" loop>
+  <source src="rosas.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Big Play Button Overlay -->
+<div id="playOverlay" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+">
+  <p style="font-size: 1.3rem; color: #444; margin-bottom: 1rem;">
+    🎵 Play this bago mo basahin
+  </p>
+  <button onclick="startMusic()" style="
+    font-size: 1.5rem;
+    background-color: #d35d74;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    ▶️ Play Music
+  </button>
+</div>
+      
 </header>
 
     <main>
