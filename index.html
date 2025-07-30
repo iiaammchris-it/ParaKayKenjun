@@ -61,6 +61,28 @@
       font-weight: 600;
     }
 
+    .petal {
+  position: fixed;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 10px 10px, #9B59B6 40%, transparent 40%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
     main {
       max-width: 800px;
       margin: 0 auto 2rem auto;
@@ -304,5 +326,25 @@ Intan
     showSlide(current);
     setInterval(nextSlide, 3000);
   </script>
+
+  <script>
+function createPetal() {
+  const petal = document.createElement('div');
+  petal.classList.add('petal');
+  petal.style.left = Math.random() * window.innerWidth + 'px';
+  petal.style.animationDuration = 5 + Math.random() * 5 + 's';
+  petal.style.opacity = Math.random();
+  petal.style.transform = `scale(${Math.random() * 0.6 + 0.4})`;
+  document.body.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 10000);
+}
+
+// Create petals continuously
+setInterval(createPetal, 300);
+</script>
+  
 </body>
 </html>
