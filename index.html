@@ -104,10 +104,14 @@
 <body>
 
   <!-- Background Music -->
-  <audio autoplay loop>
+ <div style="text-align: center; margin-top: 10px;">
+  <audio id="bgMusic" loop>
     <source src="ikaw-file.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
+  <button onclick="toggleMusic()" style="background-color:#d35d74;color:#fff;padding:6px 12px;border:none;border-radius:8px;cursor:pointer;">
+    ▶️ Play Music
+  </button>
+</div>
 
   <div class="overlay">
 
@@ -185,5 +189,22 @@ Intan
     </section>
 
   </div>
+
+<script>
+  const bgMusic = document.getElementById("bgMusic");
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      bgMusic.pause();
+      event.target.innerText = '▶️ Play Music';
+    } else {
+      bgMusic.play();
+      event.target.innerText = '⏸️ Pause Music';
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
+  
 </body>
 </html>
