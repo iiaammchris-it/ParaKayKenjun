@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Para kay Kenjun</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -57,7 +56,7 @@
 
     header h1 {
       font-size: 2.5rem;
-      color: #a855f7;
+      color: #d35d74;
       margin: 0;
       font-weight: 600;
     }
@@ -88,7 +87,27 @@
       text-align: center;
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
-      color: #9333ea;
+      color: #b35464;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover,
+    .gallery video:hover {
+      transform: scale(1.03);
     }
 
     audio {
@@ -108,53 +127,49 @@
 </head>
 <body>
   <div class="overlay">
-    <header data-aos="fade-down">
+    <header>
       <p style="font-size: 0.85rem; color: #888; margin: 0 0 0.5rem 0;">
         Music Playing: <em>Ikaw – Mula sa Buwan</em>
       </p>
 
-      <!-- Audio element -->
-<audio id="bgMusic" loop>
-  <source src="rosas.mp3" type="audio/mpeg">
-</audio>
+      <audio id="bgMusic" loop>
+        <source src="ikaw-file.mp3" type="audio/mpeg">
+      </audio>
 
-<!-- Big Play Button Overlay -->
-<div id="playOverlay" style="
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-">
-  <p style="font-size: 1.3rem; color: #444; margin-bottom: 1rem;">
-    Simulan natin sa musika.
-  </p>
-  <button onclick="startMusic()" style="
-    font-size: 1.5rem;
-    background-color: #d35d74;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    I-click kung handa ka na.
-  </button>
-</div>
-
-      
+      <div id="playOverlay" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      ">
+        <p style="font-size: 1.3rem; color: #444; margin-bottom: 1rem;">
+          Simulan natin sa musika.
+        </p>
+        <button onclick="startMusic()" style="
+          font-size: 1.5rem;
+          background-color: #d35d74;
+          color: white;
+          padding: 1rem 2rem;
+          border: none;
+          border-radius: 12px;
+          cursor: pointer;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+          transition: transform 0.2s ease;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          I-click kung handa ka na.
+        </button>
+      </div>
 
       <h1>Para kay Kenjun</h1>
     </header>
 
-    <main data-aos="fade-up">
-      Dumating ka sa buhay ko nang hindi ko inaasahan.
+    <main>
+Dumating ka sa buhay ko nang hindi ko inaasahan.
 Wala kang dalang malalalim na salita o pangakong pang-matagalang kasama,
 pero dumating ka — at sapat na 'yon para gumaan ang bigat na matagal ko nang pasan.
 Tahimik ka lang, pero sa presensya mo, unti-unti kong naalalang kaya ko pala.
@@ -205,13 +220,11 @@ Pinatibay ng buwan, inakay ng katahimikan pabalik sa sarili.
 
 Mananatiling nakatitig sa dilim,
 Intan
-      <!-- Your full letter here -->
     </main>
 
-    <section class="media-section" data-aos="fade-up">
+    <section class="media-section">
       <h2>Mga Alaala Natin</h2>
       <div class="slideshow-container">
-        <!-- Your slideshow images (kenjun1.jpg to kenjun46.jpg) -->
         <img src="kenjun1.jpg" class="slide fade" style="display: block;">
         <img src="kenjun2.jpg" class="slide fade">
         <img src="kenjun3.jpg" class="slide fade">
@@ -252,26 +265,25 @@ Intan
         <img src="kenjun38.jpg" class="slide fade">
         <img src="kenjun39.jpg" class="slide fade">
         <img src="kenjun40.jpg" class="slide fade">
-        <!-- continue to kenjun46.jpg -->
+        <!-- Add up to kenjun46.jpg as needed -->
       </div>
     </section>
   </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
-
     function startMusic() {
-    const music = document.getElementById("bgMusic");
-    const overlay = document.getElementById("playOverlay");
+      const music = document.getElementById("bgMusic");
+      const overlay = document.getElementById("playOverlay");
 
-    music.play().then(() => {
-      overlay.style.display = "none";
-    }).catch((err) => {
-      alert("Unable to play music automatically. Please try again.");
-    });
-  }
+      music.play().then(() => {
+        overlay.style.display = "none";
+      }).catch((err) => {
+        alert("Unable to play music automatically. Please try again.");
+      });
+    }
+  </script>
 
+  <script>
     const slides = document.querySelectorAll('.slide');
     let current = 0;
 
