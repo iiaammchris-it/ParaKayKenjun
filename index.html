@@ -218,18 +218,15 @@ Intan
   </div>
 
 <script>
-  const bgMusic = document.getElementById("bgMusic");
-  let isPlaying = false;
+  function startMusic() {
+    const music = document.getElementById("bgMusic");
+    const overlay = document.getElementById("playOverlay");
 
-  function toggleMusic() {
-    if (isPlaying) {
-      bgMusic.pause();
-      event.target.innerText = '▶️ Play Music';
-    } else {
-      bgMusic.play();
-      event.target.innerText = '⏸️ Pause Music';
-    }
-    isPlaying = !isPlaying;
+    music.play().then(() => {
+      overlay.style.display = "none";
+    }).catch((err) => {
+      alert("Unable to play music automatically. Please try again.");
+    });
   }
 </script>
   
