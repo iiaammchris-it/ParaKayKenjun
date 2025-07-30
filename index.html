@@ -18,6 +18,31 @@
       background-size: cover;
     }
 
+    .slideshow-container {
+  position: relative;
+  max-width: 800px;
+  height: 450px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.show {
+  display: block;
+  opacity: 1;
+}
+
     /* Overlay for readability */
     .overlay {
       background-color: rgba(255, 255, 255, 0.85);
@@ -206,11 +231,12 @@ Intan
 
   <section class="media-section">
   <h2>Mga Alaala Natin</h2>
-  <div class="gallery">
-    <video controls autoplay muted playsinline>
-      <source src="kenjun-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div class="slideshow-container">
+    <!-- Sample image, repeat this for all 46 -->
+    <img src="kenjun1.jpg" class="slide fade" style="display: block;">
+    <img src="kenjun2.jpg" class="slide fade">
+    <img src="kenjun3.jpg" class="slide fade">
+    <!-- ... up to kenjun46.jpg -->
   </div>
 </section>
 
@@ -228,6 +254,32 @@ Intan
     });
   }
 </script>
+
+  <script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('show');
+      if (i === index) {
+        slide.classList.add('show');
+      }
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  // Initial display
+  showSlide(current);
+
+  // Change slide every 3 seconds
+  setInterval(nextSlide, 3000);
+</script>
+
   
 </body>
 </html>
