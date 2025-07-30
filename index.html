@@ -14,18 +14,21 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffeaea, #fffaf0);
+      background: url('your-background.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
+    }
+
+    /* Overlay for readability */
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      min-height: 100vh;
+      padding-bottom: 2rem;
     }
 
     header {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     header h1 {
@@ -38,10 +41,10 @@
     main {
       max-width: 800px;
       margin: 2rem auto;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.95);
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       white-space: pre-wrap;
       font-size: 1rem;
       line-height: 2;
@@ -51,9 +54,9 @@
       max-width: 900px;
       margin: 3rem auto;
       padding: 2rem;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.95);
       border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     .media-section h2 {
@@ -106,11 +109,13 @@
     Your browser does not support the audio element.
   </audio>
 
-  <header>
-    <h1>Para kay Kenjun</h1>
-  </header>
+  <div class="overlay">
 
-  <main>
+    <header>
+      <h1>Para kay Kenjun</h1>
+    </header>
+
+    <main>
 Dumating ka sa buhay ko nang hindi ko inaasahan.
 Wala kang dalang malalalim na salita o pangakong pang-matagalang kasama,
 pero dumating ka — at sapat na 'yon para gumaan ang bigat na matagal ko nang pasan.
@@ -160,4 +165,22 @@ Salamat, Ga.
 Ako. Galing sa puso ko.
 Pinatibay ng buwan, inakay ng katahimikan pabalik sa sarili.
 
-Mananati
+Mananatiling nakatitig sa dilim,
+Intan
+    </main>
+
+    <section class="media-section">
+      <h2>Mga Alaala Natin</h2>
+      <div class="gallery">
+        <img src="kenjun1.jpg" alt="Kenjun 1">
+        <img src="kenjun2.jpg" alt="Kenjun 2">
+        <video controls>
+          <source src="kenjun-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
